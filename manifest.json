@@ -1,20 +1,19 @@
 {
   "name": "La Mia App Vetrina",
   "short_name": "AppVetrina",
-  "start_url": "/",
+  "start_url": "/giannellitattoo/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
-  "icons": [
-    {
-      "src": "app1.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "app2.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
+"icons": [
+  {
+    "src": "/giannellitattoo/app1.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "/giannellitattoo/app2.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]
