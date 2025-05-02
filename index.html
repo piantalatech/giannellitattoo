@@ -85,5 +85,18 @@
 
   setInterval(nextSlide, 4000); // Avanza ogni 4 secondi
 </script>
+
+    <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('Service Worker registrato con successo:', registration);
+      }, function(err) {
+        console.log('Errore nella registrazione del Service Worker:', err);
+      });
+  });
+}
+</script>
 </body>
 </html>
