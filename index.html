@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giannelli Tattoo</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+  <header>
+    <h1>GIANNELLI TATTOO</h1>
+    <p>//TATUAGGI ANIME A COLORE, BIANCO E NERO, DOTWORK//</p>
+
+    <nav class="site-menu">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="lavori.html">LAVORI</a></li>
+      <li><a href="#bio">APPUNTAMENTI</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+  </header>
+
+  <section id="chi-sono">
+    <h2>Chi sono</h2>
+    <p>Fin da piccolo sono stato sempre appassionato di anime e videogiochi. Nel 2014 ho comprato la mia prima macchinetta e nel 2016 ho conseguito l'abilitazione per permettermi di fare della mia passione il mio lavoro</p>
+  </section>
+
+
+
+  <div class="carousel">
+  <div class="carousel-track" id="track">
+    <img class="carousel-slide" src="img1.jpg" alt="">
+    <img class="carousel-slide" src="img2.jpg" alt="">
+    <img class="carousel-slide" src="img3.jpg" alt="">
+    <!-- Cloniamo la prima slide -->
+    <img class="carousel-slide" src="img1.jpg" alt="">
+  </div>
+</div>
+
+
+
+
+
+
+  <section id="portfolio">
+    <h2>I miei lavori</h2>
+
+
+
+
+
+<footer>
+  <p>&copy; 2025 GIANNELLI TATTOO. Tutti i diritti riservati.</p>
+</footer>
+
+
+
+<script>
+  const track = document.getElementById('track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  let slideIndex = 0;
+  const slideCount = slides.length;
+
+  function nextSlide() {
+    slideIndex++;
+    track.style.transition = "transform 1s ease";
+    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+    // Se stiamo mostrando la slide clonata (l'ultima)
+    if (slideIndex === slideCount - 1) {
+      setTimeout(() => {
+        // Reset immediato alla slide originale (senza transizione)
+        track.style.transition = "none";
+        track.style.transform = `translateX(0%)`;
+        slideIndex = 0;
+      }, 1000); // dopo che l'animazione è finita (1s)
+    }
+  }
+
+  setInterval(nextSlide, 4000); // Avanza ogni 4 secondi
+</script>
+</body>
+</html>

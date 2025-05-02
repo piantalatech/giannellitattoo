@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>I miei lavori</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <header>
+    <h1>GIANNELLI TATTOO</h1>
+    <p>//TATUAGGI ANIME A COLORE, BIANCO E NERO, DOTWORK//</p>
+
+    <nav class="site-menu">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="lavori.html">LAVORI</a></li>
+      <li><a href="#bio">APPUNTAMENTI</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+  </header>
+
+  <h1>I miei Lavori</h1>
+  <div class="gallery">
+   <a href="img1.jpg" class="lightbox">
+    <img src="img1.jpg" alt="Lavoro 3">
+  </a>
+ <a href="img3.jpg" class="lightbox">
+    <img src="img3.jpg" alt="Lavoro 3">
+  </a>
+  <a href="img1.jpg" class="lightbox">
+    <img src="img1.jpg" alt="Lavoro 3">
+  </a>
+   <a href="img3.jpg" class="lightbox">
+    <img src="img3.jpg" alt="Lavoro 3">
+  </a>
+  <a href="img1.jpg" class="lightbox">
+    <img src="img1.jpg" alt="Lavoro 3">
+  </a>
+   <a href="img3.jpg" class="lightbox">
+    <img src="img3.jpg" alt="Lavoro 3">
+  </a>
+ <a href="img1.jpg" class="lightbox">
+    <img src="img1.jpg" alt="Lavoro 3">
+  </a>
+</div>
+
+<!-- Contenitore lightbox -->
+<div id="lightbox-overlay">
+  <span id="lightbox-close">&times;</span>
+  <span id="lightbox-prev">&#10094;</span>
+  <img id="lightbox-img" src="" alt="">
+  <span id="lightbox-next">&#10095;</span>
+</div>
+
+
+<footer>
+  <p>&copy; 2025 GIANNELLI TATTOO. Tutti i diritti riservati.</p>
+</footer>
+
+
+
+<script>
+  const links = document.querySelectorAll('.lightbox');
+  const overlay = document.getElementById('lightbox-overlay');
+  const overlayImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const nextBtn = document.getElementById('lightbox-next');
+  const prevBtn = document.getElementById('lightbox-prev');
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    const imageLink = links[index].getAttribute('href');
+    overlayImg.src = imageLink;
+    overlay.style.display = 'flex';
+    currentIndex = index;
+  }
+
+  links.forEach((link, index) => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      showImage(index);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    overlayImg.src = '';
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % links.length;
+    showImage(currentIndex);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + links.length) % links.length;
+    showImage(currentIndex);
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.style.display = 'none';
+      overlayImg.src = '';
+    }
+  });
+</script>
+</body>
+</html>
