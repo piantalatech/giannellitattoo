@@ -2,9 +2,9 @@ self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open('app-vetrina').then(function(cache) {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/style.css'
+        '/giannellitattoo/',
+    '/giannellitattoo/index.html',
+    '/giannellitattoo/style.css'
       ]);
     })
   );
