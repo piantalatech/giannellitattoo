@@ -1,19 +1,19 @@
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open('app-vetrina').then(function(cache) {
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/giannellitattoo/',
-    '/giannellitattoo/index.html',
-    '/giannellitattoo/style.css'
+        '/giannellitattoo/index.html',
+        '/giannellitattoo/style.css'
       ]);
     })
   );
 });
 
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
     })
   );
 });
